@@ -1,0 +1,20 @@
+body{margin:0;background:#0b0b0b;color:#eee;font-family:system-ui}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:14px;border-bottom:1px solid #222;position:sticky;top:0;background:#0b0b0b;z-index:2}
+.wrap{max-width:900px;margin:auto;padding:16px;display:grid;gap:14px}
+.card{background:#111;border:1px solid #222;border-radius:14px;padding:16px}
+button{padding:10px 14px;border-radius:12px;border:1px solid #333;background:#1a1a1a;color:#eee}
+button.secondary{background:#101010}
+.transport{display:flex;gap:10px;margin:10px 0}
+.seekrow{display:grid;grid-template-columns:50px 1fr 50px;gap:8px;align-items:center}
+.volrow{display:flex;gap:10px;align-items:center;margin-top:8px}
+.status{margin-top:10px;opacity:.9}
+.hint{opacity:.7;font-size:13px}
+.center{min-height:100vh;display:grid;place-items:center;padding:16px}
+.nowplaying{display:flex;gap:12px;align-items:center}
+.cover{width:72px;height:72px;border-radius:12px;background:#000;object-fit:cover;border:1px solid #222}
+.track{font-weight:700;font-size:18px}
+.artist{opacity:.8}
+.link{display:inline-block;margin-top:6px;color:#9fd;text-decoration:none}
+.link:hover{text-decoration:underline}
+.infoSpacer{height:120vh}
+.infoCard{margin-bottom:60px;opacity:.95}
