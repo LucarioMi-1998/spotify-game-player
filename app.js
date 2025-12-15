@@ -1,5 +1,5 @@
 // ========= CONFIG =========
-const SPOTIFY_CLIENT_ID = "PASTE_YOUR_CLIENT_ID_HERE";
+const SPOTIFY_CLIENT_ID = "1a2b3c4d5e6f7g8h9i0j";
 
 const SCOPES = "streaming user-read-playback-state user-modify-playback-state";
 
