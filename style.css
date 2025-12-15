@@ -1,7 +1,0 @@
-body{margin:0;background:#000;color:#fff;font-family:system-ui}
-#game{padding:24px}
-.controls{display:flex;gap:10px}
-button{padding:10px;border-radius:8px}
-#meta{position:fixed;right:10px;bottom:10px;opacity:.55;font-size:12px}
-#meta a{display:flex;gap:6px;align-items:center;color:#fff;text-decoration:none}
-#cover{width:28px;height:28px;border-radius:6px}
