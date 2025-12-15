@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Callback</title>
+</head>
+<body>
+<p>Spotify Login…</p>
+<script src="app.js"></script>
+<script>
+  window.handleCallback().catch(err => {
+    document.body.innerText = err.message;
+  });
+</script>
+</body>
+</html>

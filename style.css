@@ -1,0 +1,8 @@
+body{margin:0;background:#000;color:#fff;font-family:system-ui}
+#game{padding:24px}
+.controls{display:flex;gap:10px;flex-wrap:wrap}
+button{padding:10px 14px;border-radius:10px;border:1px solid #444;background:#111;color:#fff}
+button:disabled{opacity:.5}
+#meta{position:fixed;right:12px;bottom:12px;opacity:.55;font-size:12px}
+#meta a{display:flex;gap:8px;align-items:center;color:#fff;text-decoration:none}
+#cover{width:28px;height:28px;border-radius:6px;object-fit:cover}
