@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Spotify Game Player</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<main id="game">
+  <h1>Game</h1>
+  <p>QR-Code enthält: <code>TRACK_ID</code></p>
+
+  <div class="controls">
+    <button id="btnLogin">Login</button>
+    <button id="btnScan">Scan QR</button>
+    <button id="btnPause">Pause</button>
+    <button id="btnLogout">Logout</button>
+  </div>
+
+  <p id="status">Nicht eingeloggt</p>
+</main>
+
+<aside id="meta">
+  <a id="spotifyLink" target="_blank" rel="noopener">
+    <img id="cover" alt=""/>
+    <span id="metaLine"></span>
+    <span class="brand">Spotify</span>
+  </a>
+</aside>
+
+<script src="https://cdn.jsdelivr.net/npm/jsqr/dist/jsQR.js"></script>
+<script src="app.js"></script>
+<script src="qr.js"></script>
+</body>
+</html>
