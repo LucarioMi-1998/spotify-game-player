@@ -1,0 +1,278 @@
+/* ===== Base ===== */
+:root{
+  --bg1:#140018;
+  --bg2:#040412;
+  --pink:#ff2fb3;
+  --cyan:#38d6ff;
+  --yellow:#ffe04a;
+  --card:#0b0b12cc;
+  --stroke:#ffffff1a;
+  --text:#ffffff;
+  --muted:#ffffffb3;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  overflow-x:hidden;
+}
+
+.bg{
+  position:fixed; inset:0;
+  background:
+    radial-gradient(1200px 700px at 30% 20%, #3b0044 0%, transparent 60%),
+    radial-gradient(900px 600px at 70% 70%, #002b55 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  filter:saturate(1.2);
+  z-index:-1;
+}
+
+.hidden{display:none !important}
+
+/* Auth chips */
+.authBar{
+  position:fixed;
+  top:14px;
+  right:14px;
+  display:flex;
+  gap:10px;
+  z-index:20;
+}
+.chip{
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid var(--stroke);
+  background:#0a0a10cc;
+  color:var(--text);
+  backdrop-filter: blur(10px);
+}
+.chipGhost{opacity:.85}
+
+/* Screens */
+.screen{
+  min-height:100svh;
+  padding:24px 18px 28px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  gap:18px;
+}
+.center{justify-content:center}
+
+/* Home */
+.logoBlock{margin-top:56px; text-align:center}
+.logoNeon{
+  font-size:64px;
+  letter-spacing:6px;
+  font-weight:800;
+  color:var(--pink);
+  text-shadow: 0 0 10px #ff2fb380, 0 0 22px #ff2fb340;
+}
+.logoTag{
+  margin:10px auto 0;
+  display:inline-block;
+  padding:10px 16px;
+  border-radius:14px;
+  border:2px solid #38d6ff80;
+  box-shadow: 0 0 18px #38d6ff3d;
+  color:#e9fbff;
+  letter-spacing:1px;
+  font-weight:700;
+}
+
+.homeButtons{
+  width:min(520px, 92vw);
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-top:18px;
+}
+.cta, .ctaGhost{
+  width:100%;
+  padding:18px 18px;
+  border-radius:18px;
+  font-size:22px;
+  font-weight:800;
+  letter-spacing:1px;
+  border:none;
+}
+.cta{
+  background:linear-gradient(180deg, #ff44bf, #ff1aa9);
+  box-shadow: 0 12px 30px #ff2fb340;
+  color:white;
+}
+.ctaGhost{
+  background: #0a0a10aa;
+  border:1px solid var(--stroke);
+  color:var(--text);
+  backdrop-filter: blur(10px);
+}
+.ctaSmall{
+  font-size:20px;
+  padding:16px 16px;
+  border-radius:16px;
+}
+.arrow{margin-left:10px}
+
+.status{
+  font-size:14px;
+  color:var(--muted);
+  margin-top:4px;
+}
+
+/* Player */
+.playerTop{
+  width:min(560px, 94vw);
+  margin-top:56px;
+  text-align:center;
+}
+.smallTitle{opacity:.9; font-weight:700}
+.smallHint{opacity:.75; font-size:13px; margin-top:6px}
+
+.discWrap{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:100%;
+  margin-top:6px;
+}
+
+.disc{
+  width:min(520px, 86vw);
+  aspect-ratio: 1 / 1;
+  border-radius:24px;
+  background:linear-gradient(180deg, #070711cc, #05050ccc);
+  border:1px solid var(--stroke);
+  box-shadow: 0 20px 60px rgba(0,0,0,.55);
+  display:grid;
+  place-items:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.discRings{
+  position:absolute; inset:0;
+  display:grid; place-items:center;
+  filter:saturate(1.2);
+  opacity:.95;
+}
+.discRings span{
+  position:absolute;
+  width:86%;
+  height:86%;
+  border-radius:999px;
+  border:6px solid transparent;
+  border-top-color: var(--pink);
+  border-right-color: var(--cyan);
+  border-left-color: var(--yellow);
+  transform:rotate(0deg);
+  animation:spin 8s linear infinite;
+}
+.discRings span:nth-child(2){width:72%;height:72%;animation-duration:10s;opacity:.9}
+.discRings span:nth-child(3){width:58%;height:58%;animation-duration:12s;opacity:.85}
+.discRings span:nth-child(4){width:44%;height:44%;animation-duration:14s;opacity:.8}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+.disc.paused .discRings span{animation-play-state: paused; opacity:.6}
+
+.discBtn{
+  width:110px;
+  height:110px;
+  border-radius:999px;
+  border:none;
+  font-size:42px;
+  font-weight:900;
+  display:grid;
+  place-items:center;
+  color:#111;
+  background:#ffffff;
+  box-shadow: 0 16px 36px rgba(0,0,0,.55);
+}
+
+#btnNext{width:min(520px, 92vw); margin-top:8px}
+
+/* Song info hidden far below */
+.infoSpacer{height:120svh}
+.infoCard{
+  width:min(560px,94vw);
+  background:var(--card);
+  border:1px solid var(--stroke);
+  border-radius:22px;
+  padding:16px;
+  margin-bottom:40px;
+  backdrop-filter: blur(10px);
+}
+.infoLabel{opacity:.7; font-size:12px; margin-bottom:12px}
+.infoRow{display:flex; gap:12px; align-items:center}
+.cover{width:72px;height:72px;border-radius:16px;background:#000;object-fit:cover;border:1px solid var(--stroke)}
+.track{font-size:18px;font-weight:800}
+.artist{opacity:.8}
+.link{display:inline-block;margin-top:6px;color:#9fd;text-decoration:none}
+.link:hover{text-decoration:underline}
+
+/* Scanner overlay */
+.scanner{
+  position:fixed; inset:0;
+  background:#000000d6;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  gap:16px;
+  padding:18px 16px 24px;
+  z-index:50;
+}
+.scannerClose{
+  position:fixed;
+  top:14px; right:14px;
+  width:44px; height:44px;
+  border-radius:999px;
+  border:1px solid #ffffff33;
+  background:#0a0a10aa;
+  color:white;
+  font-size:22px;
+}
+.scannerFrame{
+  width:min(560px, 92vw);
+  aspect-ratio: 3 / 4;
+  border-radius:26px;
+  overflow:hidden;
+  border:1px solid #ffffff22;
+  background:#000;
+  margin-top:64px;
+  position:relative;
+}
+#camVideo{width:100%;height:100%;object-fit:cover}
+.scannerReticle{position:absolute; inset:0;}
+.corner{
+  position:absolute;
+  width:46px; height:46px;
+  border:4px solid transparent;
+  filter: drop-shadow(0 0 10px #ff2fb355);
+}
+.corner.tl{left:22px;top:22px;border-left-color:#ff86d6;border-top-color:#ff86d6}
+.corner.tr{right:22px;top:22px;border-right-color:#ff86d6;border-top-color:#ff86d6}
+.corner.bl{left:22px;bottom:22px;border-left-color:#ff86d6;border-bottom-color:#ff86d6}
+.corner.br{right:22px;bottom:22px;border-right-color:#ff86d6;border-bottom-color:#ff86d6}
+.scannerText{
+  width:min(560px, 92vw);
+  text-align:center;
+  color:#ffffffcc;
+  font-size:16px;
+  padding:0 10px;
+}
+
+.cardMini{
+  width:min(520px, 92vw);
+  background:var(--card);
+  border:1px solid var(--stroke);
+  border-radius:22px;
+  padding:18px;
+  backdrop-filter: blur(10px);
+  text-align:center;
+}
+.cardTitle{font-weight:800; font-size:18px; margin-bottom:6px}
