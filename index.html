@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Spotify Game Player</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <button id="spotifyLoginBtn" class="spotify-login">Mit Spotify verbinden</button>
+
+  <div class="start">
+    <h1>Spotify Game</h1>
+    <button id="startGameBtn">JETZT SPIELEN</button>
+  </div>
+
+  <div id="player" class="hidden">
+    <p id="status">Bereit</p>
+    <button id="nextCardBtn">Nächste Karte</button>
+  </div>
+
+  <div id="qrOverlay" class="overlay"></div>
+
+  <script src="app.js" defer></script>
+  <script src="qr.js" defer></script>
+</body>
+</html>

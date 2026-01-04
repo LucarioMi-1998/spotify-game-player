@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    const hash = new URLSearchParams(window.location.hash.substring(1));
+    const token = hash.get("access_token");
+    if (token) {
+      localStorage.setItem("spotify_access_token", token);
+    }
+    window.location.href = "/spotify-game-player/";
+  </script>
+</head>
+<body></body>
+</html>
