@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Spotify Callback</title>
+</head>
+<body>
+<script>
+  // Implicit Grant returns access_token in URL hash
+  const hash = new URLSearchParams(window.location.hash.substring(1));
+  const token = hash.get("access_token");
+  const error = hash.get("error");
+
+  if (token) {
+    localStorage.setItem("spotify_access_token", token);
+  }
+
+  // Always return to app root (GitHub Pages project path)
+  window.location.replace("https://lucariomi-1998.github.io/spotify-game-player/");
+</script>
+</body>
+</html>
