@@ -1,0 +1,492 @@
+
+:root{
+  --bg:#07060b;
+  --panel:rgba(14,12,22,.72);
+  --panel2:rgba(22,15,34,.62);
+  --border:rgba(255,255,255,.10);
+  --text:#f6f3ff;
+  --muted:rgba(246,243,255,.72);
+
+  --pink:#ff2aa6;
+  --cyan:#45d6ff;
+  --violet:#8c5bff;
+
+  --glowPink:0 0 10px rgba(255,42,166,.55), 0 0 28px rgba(255,42,166,.25);
+  --glowCyan:0 0 10px rgba(69,214,255,.55), 0 0 28px rgba(69,214,255,.25);
+  --glowViolet:0 0 10px rgba(140,91,255,.45), 0 0 26px rgba(140,91,255,.22);
+
+  --r:18px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  background:
+    radial-gradient(950px 720px at 12% 8%, rgba(255,42,166,.22), transparent 55%),
+    radial-gradient(900px 700px at 88% 12%, rgba(69,214,255,.18), transparent 60%),
+    radial-gradient(1200px 950px at 50% 110%, rgba(140,91,255,.14), transparent 60%),
+    linear-gradient(180deg, #05040a, #080712 60%, #05040a);
+}
+
+/* ===== STARTSCREEN ===== */
+.startScreen{
+  position:fixed; inset:0;
+  display:grid; place-items:center;
+  padding:22px;
+  z-index:50;
+  background:
+    radial-gradient(900px 700px at 20% 15%, rgba(255,42,166,.25), transparent 55%),
+    radial-gradient(850px 650px at 80% 20%, rgba(69,214,255,.22), transparent 60%),
+    radial-gradient(1200px 900px at 50% 110%, rgba(140,91,255,.18), transparent 60%),
+    linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.70));
+  backdrop-filter: blur(8px);
+}
+
+.startInner{
+  width:min(540px,100%);
+  position:relative;
+  display:grid;
+  gap:16px;
+  align-items:center;
+  justify-items:center;
+}
+
+.stars{
+  position:absolute; inset:-40px;
+  pointer-events:none;
+  opacity:.65;
+  background:
+    radial-gradient(circle at 10% 15%, rgba(255,255,255,.95) 0 2px, transparent 3px),
+    radial-gradient(circle at 25% 55%, rgba(255,255,255,.80) 0 2px, transparent 3px),
+    radial-gradient(circle at 40% 30%, rgba(255,255,255,.65) 0 1px, transparent 2px),
+    radial-gradient(circle at 58% 60%, rgba(255,255,255,.75) 0 2px, transparent 3px),
+    radial-gradient(circle at 72% 22%, rgba(255,255,255,.85) 0 2px, transparent 3px),
+    radial-gradient(circle at 86% 48%, rgba(255,255,255,.70) 0 2px, transparent 3px),
+    radial-gradient(circle at 92% 18%, rgba(255,255,255,.60) 0 1px, transparent 2px);
+  filter: blur(.2px);
+  animation: drift 10s ease-in-out infinite alternate;
+}
+@keyframes drift{
+  from{transform:translateY(0px)}
+  to{transform:translateY(10px)}
+}
+
+.logoStack{display:grid;gap:10px;justify-items:center;margin-top:10px}
+.neonTitle{
+  font-size:66px;
+  line-height:1;
+  letter-spacing:4px;
+  color:var(--pink);
+  text-transform:uppercase;
+  text-shadow:
+    0 0 2px rgba(255,255,255,.45),
+    0 0 16px rgba(255,42,166,.70),
+    0 0 46px rgba(255,42,166,.35);
+}
+.neonSub{
+  padding:10px 16px;
+  border-radius:14px;
+  border:1px solid rgba(69,214,255,.65);
+  color:#e9fbff;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  background: rgba(10,12,18,.32);
+  box-shadow: var(--glowCyan);
+}
+
+.hero{margin:8px 0 6px}
+.speakerGlow{
+  width:280px; height:280px;
+  border-radius:999px;
+  display:grid; place-items:center;
+  background:
+    radial-gradient(circle, rgba(69,214,255,.16), transparent 60%);
+  filter: drop-shadow(0 18px 35px rgba(0,0,0,.58));
+  position:relative;
+}
+/* little "snow" cap like your screenshot */
+.speakerGlow:before{
+  content:"";
+  position:absolute;
+  top:14px; left:26px; right:26px;
+  height:38px;
+  border-radius:999px;
+  background:
+    radial-gradient(20px 18px at 8% 70%, rgba(255,255,255,.96), transparent 70%),
+    radial-gradient(22px 18px at 24% 55%, rgba(255,255,255,.98), transparent 70%),
+    radial-gradient(22px 18px at 46% 70%, rgba(255,255,255,.95), transparent 70%),
+    radial-gradient(22px 18px at 66% 55%, rgba(255,255,255,.98), transparent 70%),
+    radial-gradient(22px 18px at 86% 70%, rgba(255,255,255,.96), transparent 70%);
+  opacity:.85;
+  filter: blur(.2px);
+}
+.speaker{
+  width:252px;height:252px;border-radius:999px;
+  background:
+    radial-gradient(circle at 50% 45%, #e7e7ee 0 40%, #43434f 41% 55%, #161620 56% 100%);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:
+    0 0 0 10px rgba(255,255,255,.03) inset,
+    0 0 34px rgba(255,42,166,.18),
+    0 0 34px rgba(69,214,255,.14);
+  animation: pulse 2.6s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.015)}
+}
+
+.btnNeonPrimary{
+  width:100%;
+  padding:15px 18px;
+  border-radius:20px;
+  border:1px solid rgba(255,42,166,.72);
+  background:
+    linear-gradient(180deg, rgba(255,42,166,.95), rgba(255,42,166,.72));
+  color:white;
+  font-weight:850;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  box-shadow: var(--glowPink);
+  cursor:pointer;
+  transition: transform .08s ease, filter .15s ease, box-shadow .15s ease;
+  position:relative;
+  overflow:hidden;
+}
+.btnNeonPrimary:after{
+  content:"";
+  position:absolute; inset:-40%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.28), transparent 55%);
+  transform: translateX(-10%);
+  opacity:.55;
+}
+.btnNeonPrimary:hover{filter:brightness(1.06); box-shadow: 0 0 14px rgba(255,42,166,.65), 0 0 40px rgba(255,42,166,.32)}
+.btnNeonPrimary:active{transform:translateY(1px) scale(.995)}
+
+.btnNeonGhost{
+  width:100%;
+  padding:14px 18px;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  color:rgba(255,255,255,.92);
+  font-weight:800;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+.btnNeonGhost:hover{background: rgba(255,255,255,.09)}
+
+.startFoot{
+  display:flex; gap:10px; flex-wrap:wrap;
+  justify-content:center;
+  margin-top:2px;
+}
+.pill{
+  font-size:12px;
+  color:var(--muted);
+  padding:7px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.18);
+}
+
+/* Startscreen transitions */
+.startScreen.isLeaving{opacity:0; transform:scale(1.01); transition: all .22s ease}
+.startScreen.isHidden{display:none}
+
+/* App shell hidden until start */
+.appShell.isHidden{display:none}
+
+/* ===== APP UI (Neon polish) ===== */
+.topbar{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 16px;
+  position:sticky;top:0;z-index:10;
+  background: rgba(7,6,11,.55);
+  backdrop-filter: blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+.brand{
+  font-weight:900;
+  letter-spacing:.6px;
+  text-shadow: 0 0 16px rgba(255,42,166,.22);
+}
+.wrap{max-width:900px;margin:auto;padding:16px;display:grid;gap:14px}
+
+.card{
+  background: linear-gradient(180deg, var(--panel), var(--panel2));
+  border:1px solid rgba(255,255,255,.10);
+  border-radius: var(--r);
+  padding:16px;
+  box-shadow: 0 14px 34px rgba(0,0,0,.40);
+}
+
+button{
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  color:var(--text);
+  cursor:pointer;
+  transition: transform .08s ease, background .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+button:hover:not(:disabled){
+  background: rgba(255,255,255,.09);
+  border-color: rgba(255,42,166,.22);
+  box-shadow: 0 0 0 1px rgba(255,42,166,.12), 0 12px 26px rgba(0,0,0,.38);
+}
+button:active:not(:disabled){transform:translateY(1px)}
+button.secondary{
+  background: rgba(0,0,0,.18);
+  border:1px solid rgba(255,255,255,.10);
+  color: rgba(255,255,255,.84);
+}
+button:disabled{opacity:.5}
+
+/* Icon-style transport buttons */
+.transport button{
+  width:52px;height:52px;
+  display:grid;place-items:center;
+  font-size:18px;
+  border-radius:999px;
+}
+#btnPlay{
+  border-color: rgba(69,214,255,.35);
+  box-shadow: var(--glowCyan);
+}
+#btnPause{
+  border-color: rgba(255,42,166,.28);
+}
+
+.transport button:hover:not(:disabled){
+  transform: translateY(-1px);
+}
+
+.seekrow{display:grid;grid-template-columns:54px 1fr 54px;gap:10px;align-items:center}
+.volrow{display:flex;gap:10px;align-items:center;margin-top:10px}
+.status{
+  margin-top:12px;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.22);
+  color: rgba(255,255,255,.86);
+}
+.status:before{
+  content:"";
+  width:9px;height:9px;border-radius:99px;
+  background: rgba(255,255,255,.55);
+  box-shadow: 0 0 10px rgba(255,255,255,.22);
+}
+
+/* status states (set via JS dataset) */
+.status[data-state="ready"]:before{background: var(--cyan); box-shadow: var(--glowCyan)}
+.status[data-state="playing"]:before{background: var(--pink); box-shadow: var(--glowPink)}
+.status[data-state="scanning"]:before{background: var(--violet); box-shadow: var(--glowViolet)}
+.status[data-state="error"]:before{background: #ff4b4b; box-shadow: 0 0 14px rgba(255,75,75,.55)}
+
+.hint{color:rgba(255,255,255,.65);font-size:13px}
+.center{min-height:100vh;display:grid;place-items:center;padding:16px}
+
+.nowplaying{display:flex;gap:12px;align-items:center}
+.cover{
+  width:76px;height:76px;border-radius:16px;
+  background:#000;object-fit:cover;
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow: 0 0 0 1px rgba(69,214,255,.10), 0 12px 26px rgba(0,0,0,.38);
+}
+.track{font-weight:900;font-size:18px}
+.artist{opacity:.82}
+.link{
+  display:inline-block;margin-top:6px;
+  color: var(--cyan);
+  text-decoration:none;
+  text-shadow: 0 0 16px rgba(69,214,255,.28);
+}
+.link:hover{text-decoration:underline}
+
+.infoSpacer{height:120vh}
+.infoCard{margin-bottom:60px;opacity:.98}
+
+/* Camera preview */
+.scanRow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.camBox{margin-top:12px}
+.hidden{display:none}
+.camHeader{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;opacity:.9}
+.camHint{opacity:.7;font-size:12px}
+.camFrame{
+  position:relative;width:min(420px,100%);
+  aspect-ratio: 4 / 3;
+  border-radius:18px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.12);
+  background:#000;
+  box-shadow: 0 0 0 1px rgba(255,42,166,.10), 0 16px 40px rgba(0,0,0,.58);
+}
+#camVideo{width:100%;height:100%;object-fit:cover}
+
+/* Animated neon reticle */
+.reticle{
+  position:absolute;inset:12%;
+  border:2px solid rgba(255,255,255,.78);
+  border-radius:16px;
+  box-shadow:
+    0 0 0 999px rgba(0,0,0,.33) inset,
+    0 0 22px rgba(255,42,166,.20),
+    0 0 22px rgba(69,214,255,.16);
+}
+.reticle:before,.reticle:after{
+  content:"";
+  position:absolute; inset:-2px;
+  border-radius:16px;
+  border:2px solid rgba(255,42,166,.24);
+  animation: scanGlow 1.6s ease-in-out infinite;
+}
+.reticle:after{
+  border-color: rgba(69,214,255,.20);
+  animation-delay:.8s;
+}
+@keyframes scanGlow{
+  0%,100%{opacity:.25; filter:blur(.2px)}
+  50%{opacity:.85; filter:blur(0px)}
+}
+
+input[type="range"]{accent-color: var(--pink)}
+code{color: rgba(69,214,255,.95)}
+
+/* small mobile tweaks */
+@media (max-width:420px){
+  .neonTitle{font-size:56px}
+  .speakerGlow{width:250px;height:250px}
+  .speaker{width:226px;height:226px}
+}
+
+
+/* Next card button */
+.nextRow{margin-top:10px}
+.nextCardBtn{width:100%;padding:12px 16px;border-radius:18px}
+
+/* ===== Fullscreen QR Scanner Overlay (Hitster-style) ===== */
+/* Uses existing #camBox + #camVideo + .reticle markup from index_new.html */
+
+.camBox{
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  margin:0;
+  padding:0;
+  display:grid;
+  place-items:center;
+  background:
+    radial-gradient(900px 700px at 20% 15%, rgba(255,42,166,.14), transparent 60%),
+    radial-gradient(900px 700px at 85% 20%, rgba(69,214,255,.12), transparent 60%),
+    linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.62));
+  backdrop-filter: blur(8px);
+}
+
+/* Hide the old inline header inside the overlay */
+.camBox .camHeader{display:none}
+
+.camBox .camFrame{
+  width:100%;
+  height:100%;
+  max-width:none;
+  aspect-ratio:auto;
+  border-radius:0;
+  border:none;
+  box-shadow:none;
+}
+
+#camVideo{width:100%;height:100%;object-fit:cover}
+
+/* Scan window + neon corners */
+.reticle{
+  position:absolute;
+  width:min(76vw, 340px);
+  height:min(76vw, 340px);
+  top:58%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  border:none;
+  border-radius:26px;
+  box-shadow: 0 0 0 9999px rgba(0,0,0,.30);
+}
+
+.reticle:before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:26px;
+  background:
+    linear-gradient(var(--pink),var(--pink)) left top/56px 4px no-repeat,
+    linear-gradient(var(--pink),var(--pink)) left top/4px 56px no-repeat,
+
+    linear-gradient(var(--pink),var(--pink)) right top/56px 4px no-repeat,
+    linear-gradient(var(--pink),var(--pink)) right top/4px 56px no-repeat,
+
+    linear-gradient(var(--pink),var(--pink)) left bottom/56px 4px no-repeat,
+    linear-gradient(var(--pink),var(--pink)) left bottom/4px 56px no-repeat,
+
+    linear-gradient(var(--pink),var(--pink)) right bottom/56px 4px no-repeat,
+    linear-gradient(var(--pink),var(--pink)) right bottom/4px 56px no-repeat;
+  filter:
+    drop-shadow(0 0 10px rgba(255,42,166,.55))
+    drop-shadow(0 0 22px rgba(255,42,166,.25));
+  opacity:.95;
+}
+
+.reticle:after{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:26px;
+  border:2px solid rgba(255,255,255,.12);
+  box-shadow:
+    0 0 18px rgba(69,214,255,.10),
+    0 0 18px rgba(255,42,166,.10);
+}
+
+/* Close button (X) */
+.camClose{
+  position:fixed;
+  top:18px;
+  right:16px;
+  width:54px;
+  height:54px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);
+  background: rgba(0,0,0,.28);
+  color:white;
+  font-size:38px;
+  line-height:0;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: 0 10px 28px rgba(0,0,0,.35);
+}
+.camClose:active{transform:scale(.98)}
+
+/* Optional hint line */
+.scanHintOverlay{
+  position:fixed;
+  top:92px;
+  left:50%;
+  transform:translateX(-50%);
+  padding:10px 14px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.22);
+  color:rgba(255,255,255,.92);
+  font-weight:700;
+  letter-spacing:.2px;
+  font-size:13px;
+  box-shadow: 0 0 18px rgba(255,42,166,.14);
+}
+
