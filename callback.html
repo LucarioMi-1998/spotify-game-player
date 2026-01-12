@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Hitster – Login</title>
+  <link rel="stylesheet" href="style.css?v=8"/>
+</head>
+<body class="center">
+  <div class="card">
+    <h2>Login…</h2>
+    <p id="cbStatus">Bitte warten</p>
+  </div>
+  <script defer src="./app.js?v=8"></script>
+  <script>
+    window.handleCallback().catch(e=>{
+      document.getElementById("cbStatus").textContent = e.message;
+    });
+  </script>
+</body>
+</html>
